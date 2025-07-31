@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayana Poojary - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .profile-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        .profile-pic {
+             width: 50%;
+             height: 50%;
+             border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 3em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .resume-button {
+            align-self: flex-start; 
+             display: inline-block;
+             margin-top: 10px;
+             padding: 10px 20px;
+             background-color: #e6e7e9;
+             color: rgb(16, 15, 15);
+             border-radius: 6px;
+             text-decoration: none;
+             font-weight: bold;
+             transition: background-color 0.3s;
+       }
+        .resume-button:hover {
+             background-color: #0056b3;
+        }
+
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .section h2 {
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .objective {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #f8f9ff, #e8f2ff);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .education-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .education-school {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .education-details {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .cgpa {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8f9ff, #e8f2ff);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .project-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .project-tech {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9ff, #e8f2ff);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.4s ease;
+        }
+        .skill-category:hover {
+            transform: translateY(-10px) rotateX(15deg)  scale(1.05);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+        }   
+
+        .skill-category h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .certifications-list {
+            list-style: none;
+        }
+
+        .cert-item {
+            background: linear-gradient(135deg, #f8f9ff, #e8f2ff);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px) rotateX(10deg);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.1);
+        }
+
+        .volunteer-item {
+            background: linear-gradient(135deg, #f8f9ff, #e8f2ff);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+            transition: all 0.4s ease;
+        }
+
+         .volunteer-item:hover {
+            transform: translateX(15px) rotateY(8deg) translateZ(15px);
+            box-shadow: 0 20px 45px rgba(102, 126, 234, 0.3);
+         }   
+            border-left-width: 8px;
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2.2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .section {
+                padding: 25px 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+           <div class="circle">
+             <img src="profile.jpg" alt="Profile Photo" class="profile-pic">
+           </div>
+
+            <h1 class="name">Nayana Poojary</h1>
+            <p class="title">Computer Science and Engineering Student | Aspiring Software Engineer</p>
+            <div class="contact-info">
+                <a href="mailto:nayanapoojary2004@gmail.com" class="contact-item">
+                    📧 nayanapoojary2004@gmail.com
+                </a>
+                <a href="https://linkedin.com/in/nayana-poojary" class="contact-item">
+                    💼 LinkedIn Profile
+                </a>
+                <span class="contact-item">📱 +91 8147885949</span>
+                <span class="contact-item">📍 Pandeshwara Sasthan-576226,Udupi, Karnataka</span>
+                <a href="Nayana_Poojary_Resume.pdf" target="_blank" class="resume-button"> Resume</a>
+            </div>
+        </div>
+
+        <!-- Objective Section -->
+        <div class="section">
+            <h2>About Me</h2>
+            <p class="About Me">
+                Dynamic and results-focused engineering graduate with strong technical knowledge and problem-solving skills. 
+                Experienced in handling projects and working closely with teams. Looking for a Product Manager role to apply 
+                my technical background and contribute to building useful and efficient products that make a real difference 
+                in people's lives.
+            </p>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section">
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="education-title">Bachelor of Computer Science and Engineering</div>
+                <div class="education-school">A J Institute of Engineering and Technology</div>
+                <P>Hardworking and focused student with a good academic record. Always eager to learn new things and improve technical skills.
+                     Works well in a team and takes responsibility seriously.</P>
+                <div class="education-details">Expected Graduation: July 2026</div>
+                <div class="cgpa">CGPA: 9.2/10</div>
+            </div>
+            <div class="education-item">
+                <div class="education-title">Pre-University College (PCMCs)</div>
+                <div class="education-school">Viveka PU College</div>
+                <div class="education-details">Completed: April 2022 | Physics, Chemistry, Mathematics, Computer Science</div>
+                <P>I have completed my PUC (PCMCs) with 91.83%, studying Physics, Chemistry, Mathematics,
+                    and Computer Science.
+                    I am a focused and disciplined student with a strong interest in science and problem-solving</P>
+                <div class="cgpa">Score: 91.83%</div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Gallbladder Polyps Identification</h3>
+                    <div class="project-tech">Python • SQL • Machine Learning</div>
+                    <div class="project-description">
+                        Developing a machine learning model for Gallbladder Polyps Identification using ultrasound images 
+                        to support early and accurate diagnosis. Implementing image classification techniques with a focus 
+                        on improving detection accuracy and model interpretability.
+                        <br><br><strong>Timeline:</strong> Nov 2024 - Present
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="project-title">Bus Reservation Management System</h3>
+                    <div class="project-tech">Java • MySQL • NetBeans</div>
+                    <div class="project-description">
+                        Helped people save time by allowing them to easily book local bus tickets online instead of 
+                        standing in long queues. Reduced booking errors and improved convenience through a user-friendly interface.
+                        <br><br><strong>Timeline:</strong> Oct 2023 - Feb 2024
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="project-title">Blood Donation Management System</h3>
+                    <div class="project-tech">PHP • XAMPP • SQL</div>
+                    <div class="project-description">
+                        Enabled quick access to required blood groups, helping patients and hospitals in emergency situations. 
+                        Connected donors and recipients more efficiently through a centralized web-based system.
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="project-title">Student Career Assistant Chatbot</h3>
+                    <div class="project-tech">Java • Python • Flask • HTML/CSS • API</div>
+                    <div class="project-description">
+                        Guided students by providing clear information about various career options based on their interests. 
+                        Reduced confusion and supported better career decisions through instant chatbot assistance.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Flask</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">NetBeans</span>
+                        <span class="skill-tag">Eclipse</span>
+                        <span class="skill-tag">Jupyter Notebook</span>
+                        <span class="skill-tag">XAMPP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications Section -->
+        <div class="section">
+            <h2>Certifications</h2>
+            <ul class="certifications-list">
+                <li class="cert-item">
+                    <strong>Web Development and Java Certification</strong> - System Tron
+                </li>
+                <li class="cert-item">
+                    <strong>SQL and Python Certification</strong> - Infosys Springboard
+                </li>
+            </ul>
+        </div>
+
+        <!-- Volunteer Experience Section -->
+        <div class="section">
+            <h2>Leadership & Volunteer Experience</h2>
+            <div class="volunteer-item">
+                <h3 style="color: #333; font-size: 1.2em; margin-bottom: 10px;">National Service Scheme (NSS)</h3>
+                <p style="color: #667eea; font-weight: 500;">July 2023 - June 2025</p>
+                <p style="color: #666; margin-top: 10px;">
+                    Active member participating in all NSS activities and volunteering in various public programs 
+                    beyond the regular curriculum, demonstrating commitment to community service.
+                </p>
+            </div>
+            
+            <div class="volunteer-item">
+                <h3 style="color: #333; font-size: 1.2em; margin-bottom: 10px;">Student Member, Grievance Committee</h3>
+                <p style="color: #667eea; font-weight: 500;">November 2024 - Present</p>
+                <p style="color: #666; margin-top: 10px;">
+                    Actively participating in workshops and contributing to student welfare initiatives, 
+                    helping bridge communication between students and administration.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling animation for better user experience
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section, .header');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0.2s';
+                        entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html> 
